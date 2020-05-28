@@ -1,0 +1,43 @@
+
+#menu{
+	margin-top: 10px; 
+}
+#comments{
+	background: linear-gradient(to bottom right, #76A4F5 50%, #FFb241 50%);
+	height: 825px;
+	margin-top: 50px;
+}
+#form {
+border:3px solid blue;
+height:775px;
+float:right;
+margin:10px;
+background: radial-gradient( ellipse at 50% 50%, pink, purple, orange );
+}
+#name{
+	width: 150px;
+	margin-right: 8px;
+}
+#background{
+	background: radial-gradient( ellipse at 50% 50%, silver 45%, gold 55% );
+}
+#header{
+text-align: center;
+background-color: blue;
+color: white;
+font-size: 2.5em;
+font-family: futura;
+border-radius: 15px;
+margin: 15px;
+}
+.icon{
+height: 50px;
+width: 50px;
+padding-right: 5px;
+margin: 10px;
+}
+#userComment{
+	border:5px solid #0094FF;
+	border-radius: 15px;
+	width:450px;
+}
