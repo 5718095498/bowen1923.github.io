@@ -1,0 +1,38 @@
+<html>
+	<head>
+		<title> Main Menu </title>
+		<script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script>
+		<script>
+			function start(){
+			sjs.open();
+			var menu_text = new sjs.Text("MAIN MENU",35,"blue");
+			menu_text.centerH();
+
+			var practice = new sjs.Button("Practice",function(){
+				window.location = "practicemenu.html";
+			});
+			practice.centerH().offset(0,100);
+
+			var startbtn = new sjs.Button("1 player",function(){
+				window.location = "1plmenu.html";
+			});
+			startbtn.centerH().offset(0,160);
+
+			var player = new sjs.Button("2 player", function(){
+				window.location = "2plmenu.html"
+			});
+
+			player.centerH().offset(0,220);
+
+			 var create = new sjs.Text ("Created by:Bowen",60,"blue");
+			 create.centerH().bottom();
+
+			} //end start
+		</script>
+	</head>
+	<body onload="start()">
+		<h1>Main Menu </h1>
+
+		<div id="target" style="margin:auto;background:grey;"></div>
+	</body>
+</html>

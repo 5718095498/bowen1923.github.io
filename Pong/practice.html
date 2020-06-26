@@ -1,0 +1,111 @@
+<html>
+	<head>
+		<title> Pong Practice </title>
+		<script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script>
+		<script>
+			function start(){
+				alert("Practice agiasn't A.I. Try to beat your high score. Press the quit button when your done. ");
+				sjs.open("target",500,400);
+				
+
+				//Ball objects and properties
+				var spike = new sjs.Image("Images/spike.png");
+				spike.type = "ball";
+				spike.setSize(50,50);
+				spike.center();
+				spike.friction = 0;
+				spike.bounce();
+				spike.pushRight(1);
+				spike.pushUp(2);
+
+				
+				//walls
+
+				var wall1 = new sjs.Image("Images/green.png");
+				wall1.type = "wall";
+				wall1.setSize(500,1);
+				wall1.centerH().offset(0,400);
+
+				var wall2 = new sjs.Image("Images/green.png");
+				wall2.type = "wall1";
+				wall2.centerH();
+				wall2.setSize(500,1);
+
+				setInterval(function(){
+					if(spike.x > paddle1.x){
+						paddle1.pushRight();
+					}else{
+						paddle1.pushLeft();
+					};
+
+				},1000);
+
+				//paddle1
+				var paddle1 = new sjs.Image("Images/paddle.png");
+				paddle1.type = "paddle1";
+				paddle1.centerH();
+				paddle1.setSize(100,20);
+
+				//padle2
+				var paddle2 = new sjs.Image("Images/paddle2.png");
+				paddle2.type = "paddle";
+				paddle2.center().bottom();
+				paddle2.setSize(100,20);
+
+
+				sjs.keyDown(LEFT_KEY, function(){
+				paddle2.pushLeft();
+				});
+
+				sjs.keyDown(RIGHT_KEY, function(){
+				paddle2.pushRight();
+				});
+
+				//sounds
+				var soundEffect = new Audio('Music/pop.mp3');
+				var oops = new Audio('Music/doh.mp3');
+				var paddlenoise = new Audio('Music/techno.mp3')
+				//score
+
+				var score = 0;
+
+				var score_txt = new sjs.Text("score: 0",21,"orange");
+
+				
+
+				sjs.onHit("paddle","ball",function(ball,paddle){
+					score = score + 1;
+					score_txt.setText("Score:" + score);
+					soundEffect.play();
+					sjs.bounceOff(paddle,ball);
+				});
+
+				sjs.onHit("ball","wall",function(ball, wall){
+					score = score - 1;
+					score_txt.setText("Score: " + score);
+					oops.play();
+				});
+
+				sjs.onHit("paddle1","ball", function(ball,paddle1){
+					paddlenoise.play();
+					sjs.bounceOff(paddle1,ball);
+
+				});
+
+				
+
+					}//end func start
+		</script>
+	</head>
+	<body onload="start()">
+		<center>
+		<h1> Easy Practice  </h1>
+		</center>
+		<div id="target" style="margin:auto;background:grey;"></div>
+		<center>
+			<h3>
+		<a href="practicemenu.html">Quit</a>
+	</h3>
+	</center>
+	</body>
+</html>

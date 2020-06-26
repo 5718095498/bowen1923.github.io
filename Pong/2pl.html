@@ -1,0 +1,109 @@
+<html>
+	<head>
+		<title> Pong </title>
+		<script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script>
+		<script>
+			function start(){
+				alert("Play agaisnt each other. Top paddle (player 1) uses the right and left arrow keys to move. The bottom paddle(player 2) uses A and D to move. Score a pont by getting it past the other player. First player to 50 pionts wins. Sometimes you get double points ro even triple.");
+				sjs.open("target",500,400);
+				
+
+				//Ball objects and properties
+				var basketball = new sjs.Image("Images/golfball.png");
+				basketball.type = "ball";
+				basketball.setSize(50,50);
+				basketball.center();
+				basketball.friction = 0;
+				basketball.bounce();
+				basketball.pushRight(7);
+				basketball.pushUp(6);
+
+				
+
+
+								
+				//walls
+
+				var wall1 = new sjs.Image("Images/green.png");
+				wall1.type = "wall";
+				wall1.setSize(500,1);
+				wall1.centerH().offset(0,400);
+
+				var wall2 = new sjs.Image("Images/green.png");
+				wall2.type = "wall1";
+				wall2.centerH();
+				wall2.setSize(500,1);
+
+
+				//paddle1
+				var paddle1 = new sjs.Image("Images/paddle.png");
+				paddle1.type = "paddle";
+				paddle1.centerH();
+				paddle1.setSize(100,20);
+
+				//padle2
+				var paddle2 = new sjs.Image("Images/paddle2.png");
+				paddle2.type = "paddle";
+				paddle2.center().bottom();
+				paddle2.setSize(100,20);
+
+
+				sjs.keyDown(LEFT_KEY, function(){
+				paddle1.pushLeft();
+				});
+
+				sjs.keyDown(RIGHT_KEY, function(){
+				paddle1.pushRight();
+				});
+
+				sjs.keyDown(A_KEY, function(){
+				paddle2.pushLeft();
+				});
+
+				sjs.keyDown(D_KEY,function(){
+					paddle2.pushRight();
+				});
+
+				//sounds
+				var soundEffect = new Audio('Music/pop.mp3');
+				//score
+
+				var score = 0;
+				var score = 0;
+
+				var score_txt = new sjs.Text("player 1 score: 0",21,"orange");
+				var score2_txt = new sjs.Text("player 2 score: 0",21,"blue");
+				score2_txt.centerH();
+
+				sjs.onHit("wall","ball",function(wall,ball){
+					score = score + 1;
+					score_txt.setText("player 1 Score: " + score);
+					soundEffect.play();
+					if(score > 50){
+					window.location= "#"
+					};
+				});
+
+				sjs.onHit("ball","wall1",function(ball, wall1){
+					score = score + 1;
+					score2_txt.setText("player 2 Score: " + score);
+					soundEffect.play();
+					bounceOff(ball,wall1);
+					if (score > 50){
+					window.location = "#"
+					};
+				});
+				sjs.onHit("ball","paddle",function(ball,paddle){
+					sjs.bounceOff(ball,paddle);
+				});
+
+				}//end func start
+		</script>
+	</head>
+	<body onload="start()">
+		<center>
+		<h1> Pong  </h1>
+		</center>
+		<div id="target" style="margin:auto;background:grey;"></div>
+	</body>
+</html>

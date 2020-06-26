@@ -1,0 +1,35 @@
+<html>
+	<head>
+		<title> 2 player Menu </title>
+		<script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script>
+		<script>
+			function start(){
+			sjs.open();
+			var menu_text = new sjs.Text("2 PLAYER MENU",35,"blue");
+			menu_text.centerH();
+
+			var vs= new sjs.Button("V.S.",function(){
+				window.location = "2pl.html";
+			});
+			vs.centerH().offset(0,130);
+
+			var team = new sjs.Button("Team",function(){
+				window.location = "2plt.html";
+			});
+			team.centerH().offset(0,190);
+
+			 var backbtn = new sjs.Button("Back to Main Menu", function(){
+			 	window.location = "index.html";
+			 });
+
+			 backbtn.centerH().bottom();
+
+			} //end start
+		</script>
+	</head>
+	<body onload="start()">
+		<h1>2 Player Menu </h1>
+
+		<div id="target" style="margin:auto;background:grey;"></div>
+	</body>
+</html>

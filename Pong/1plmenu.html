@@ -1,0 +1,35 @@
+<html>
+	<head>
+		<title> 1 Player Menu </title>
+		<script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script>
+		<script>
+			function start(){
+			sjs.open();
+			var menu_text = new sjs.Text("1 PLAYER MENU",35,"blue");
+			menu_text.centerH();
+
+			var reg= new sjs.Button("Original",function(){
+				window.location = "EP.html";
+			});
+			reg.centerH().offset(0,130);
+
+			var ed = new sjs.Button("Extremly Hard",function(){
+				window.location = "pong.html";
+			});
+			ed.centerH().offset(0,190);
+
+			 var backbtn = new sjs.Button("Back to Main Menu", function(){
+			 	window.location = "index.html";
+			 });
+
+			 backbtn.centerH().bottom();
+
+			} //end start
+		</script>
+	</head>
+	<body onload="start()">
+		<h1>1 Player Menu </h1>
+
+		<div id="target" style="margin:auto;background:grey;"></div>
+	</body>
+</html>

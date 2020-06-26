@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<title> win </title>
+		<script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script>
+		<script>
+			function start(){
+			sjs.open();
+			var gameover_text = new sjs.Text("Well played, you win!!!",28, "orange");
+			gameover_text.centerH();
+
+			var restart = sjs.Button("Main Menu",function(){
+				window.location = "index.html";
+				restart.centerH();
+				restart.offset(0,30);
+			})
+
+			} //end start
+		</script>
+	</head>
+	<body onload="start()">
+		<center>
+		<h1> YOU WIN! </h1>
+		</center>
+
+		<div id="target" style="margin:auto;background:grey;"></div>
+	</body>
+</html>

@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<title>Practice Menu </title>
+		<script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script>
+		<script>
+			function start(){
+			sjs.open();
+			var menu_text = new sjs.Text("PRACTICE MENU",35,"blue");
+			menu_text.centerH();
+
+			var easy = new sjs.Button("Easy",function(){
+				window.location = "practice.html";
+			});
+			easy.centerH().offset(0,100);
+
+			var medium = new sjs.Button("Medium",function(){
+				window.location = "practice2.html";
+			});
+			medium.centerH().offset(0,160);
+
+			var hard = new sjs.Button("Hard", function(){
+				window.location = "practice3.html"
+			});
+
+			hard.centerH().offset(0,220);
+
+			 var home = new sjs.Button("Back to Main Menu",function(){
+			 	window.location = "index.html";
+			 });
+			 home.centerH().bottom();
+
+			} //end start
+		</script>
+	</head>
+	<body onload="start()">
+		<h1> Menu </h1>
+
+		<div id="target" style="margin:auto;background:grey;"></div>
+	</body>
+</html>
